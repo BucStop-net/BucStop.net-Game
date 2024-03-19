@@ -94,6 +94,12 @@ label {
     margin: 0 auto;
 }
 
+.center-button {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 

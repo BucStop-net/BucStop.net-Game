@@ -147,10 +147,15 @@ function placeTetromino() {
 function showGameOver() {
     cancelAnimationFrame(rAF);
     gameOver = true;
-
+    const ctx = document.getElementById('game').getContext('2d');
+    ctx.fillStyle = "#FFFFFF"; // Text color
+    ctx.fillStyle = "#FF0000"; // Button color
+    ctx.font = "30px Arial";
+    
     context.fillStyle = 'black';
     context.globalAlpha = 0.75;
     context.fillRect(0, canvas.height / 2 - 30, canvas.width, 60);
+    ctx.fillRect(0, canvas.height / 2 - 30, canvas.width, 60); // Button position and size
 
     context.globalAlpha = 1;
     context.fillStyle = 'white';
@@ -158,6 +163,10 @@ function showGameOver() {
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     context.fillText('GAME OVER! Score: ' + score, canvas.width / 2, canvas.height / 2);
+
+    // Draw the button text
+
+    ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2); // 
 }
 
 const canvas = document.getElementById('game');
@@ -332,4 +341,17 @@ document.addEventListener('keydown', function (e) {
 });
 
 // start the game
+
+document.getElementById('game').addEventListener('click', function(event) {
+    const rect = this.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    // Check if the click was within the button's area
+    if (x >= 100 && x <= 220 && y >= 200 && y <= 260) {
+        // The button was clicked, refresh the page
+        location.reload();
+    }
+});
 rAF = requestAnimationFrame(loop);
+

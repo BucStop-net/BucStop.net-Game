@@ -166,6 +166,15 @@ function showGameOver() {
 
 }
 
+// draws the score while the game is playing
+function drawScore() {
+    context.fillStyle = 'black';
+    context.font = '20px monospace';
+    context.textAlign = 'left';
+    context.textBaseline = 'top';
+    context.fillText('Score: ' + Math.floor(score), 10, 10);
+}
+
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
 const grid = 32;
@@ -285,6 +294,9 @@ function loop() {
             }
         }
     }
+
+    // draw the score at the top
+    drawScore();
 }
 
 // listen to keyboard events to move the active tetromino

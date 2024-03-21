@@ -164,9 +164,6 @@ function showGameOver() {
     context.textBaseline = 'middle';
     context.fillText('GAME OVER! Score: ' + score, canvas.width / 2, canvas.height / 2);
 
-    // Draw the button text
-
-    ctx.fillText("Play Again", canvas.width / 2, canvas.height / 2); // 
 }
 
 const canvas = document.getElementById('game');

@@ -15,7 +15,9 @@
 // get a random integer between the range of [min,max]
 // see https://stackoverflow.com/a/1527820/2124254
 
-let score = 0; //Overall score variable
+let score = 0; //Overall score variable'
+let topScores = [];
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -144,6 +146,7 @@ function placeTetromino() {
 }
 
 // show the game over screen
+// Modify showGameOver function to update the leaderboard
 function showGameOver() {
     cancelAnimationFrame(rAF);
     gameOver = true;
@@ -164,7 +167,53 @@ function showGameOver() {
     context.textBaseline = 'middle';
     context.fillText('GAME OVER! Score: ' + score, canvas.width / 2, canvas.height / 2);
 
+
+    checkForHighScore(score); // Check if the score qualifies for the leaderboard
+
+    drawLeaderboard();
 }
+
+// Function to handle user input for name and save score
+function saveScore(score) {
+    const name = prompt('Congratulations! Enter your name (3 letters):');
+    if (name && name.length === 3) {
+        topScores.push({ name: name.toUpperCase(), score: score });
+        topScores.sort((a, b) => b.score - a.score); // Sort scores in descending order
+        topScores = topScores.slice(0, 10); // Keep only the top 10 scores
+    } else {
+        alert('Invalid name. Please enter exactly 3 letters.');
+    }
+}
+
+
+
+// Updated drawLeaderboard function
+function drawLeaderboard() {
+    context.clearRect(0, canvas.height / 2 + 30, canvas.width, 180);
+
+    context.fillStyle = 'black';
+    context.font = '15px monospace';
+    context.textAlign = 'center';
+    context.textBaseline = 'top';
+    context.fillText('LEADERBOARD', canvas.width / 2, canvas.height / 2 + 35); // Centered leaderboard title
+
+    const x = canvas.width / 2 - 90; // Adjusted x-coordinate for leaderboard entries
+    const y = canvas.height / 2 + 60;
+
+    for (let i = 0; i < topScores.length; i++) {
+        const { name, score } = topScores[i];
+
+        context.fillText(`${i + 1}. ${name}`, x, y + 20 * i);
+        context.fillText(`Score: ${score}`, x + 150, y + 20 * i); // Adjusted x-coordinate for score display
+    }
+}
+
+function checkForHighScore(score) {
+    if (topScores.length < 10 || score > topScores[topScores.length - 1].score) {
+        saveScore(score);
+    }
+}
+
 
 // draws the score while the game is playing
 function drawScore() {
@@ -350,7 +399,6 @@ document.addEventListener('keydown', function (e) {
 });
 
 // start the game
-
 document.getElementById('game').addEventListener('click', function(event) {
     const rect = this.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -363,4 +411,3 @@ document.getElementById('game').addEventListener('click', function(event) {
     }
 });
 rAF = requestAnimationFrame(loop);
-

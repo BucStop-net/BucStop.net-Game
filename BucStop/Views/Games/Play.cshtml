@@ -64,6 +64,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#howtoplay" type="button" role="tab" aria-controls="howtoplay" aria-selected="false">How to Play</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rate" type="button" role="tab" aria-controls="rate" aria-selected="false">Rating</button>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="author" role="tabpanel" aria-labelledby="home-tab">
@@ -74,6 +77,36 @@
                 </div>
                 <div class="tab-pane fade" id="howtoplay" role="tabpanel" aria-labelledby="contact-tab">
                     <p>@Model.HowTo</p>
+                </div>
+                <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">
+                    <body>
+                        <div class="card">
+                            <span onclick="gfg(1)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(2)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(3)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(4)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(5)"
+                                  class="star">
+                                ★
+                            </span>
+                            <h3 id="output">
+                                Rating is: 0/5
+                            </h3>
+                        </div>
+                        <script src="..\..\js\rating.js"></script>
+                    </body>
                 </div>
             </div>
 

@@ -84,7 +84,6 @@ namespace BucStop.Controllers
                     if (game.Id == 2)
                     {
                         SetTetrisContent(game);
-                        info.Content = game.Content;
                     }
                 }
             }

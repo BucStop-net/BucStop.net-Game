@@ -48,6 +48,10 @@ namespace BucStop.Controllers
             List<Game> games = await GetGamesWithInfo();
 
             Game game = games.FirstOrDefault(x => x.Id == id);
+            if (game.Id == 2)
+            {
+                SetTetrisContent(game);
+            }
             if (game == null)
             {
                 return NotFound();
@@ -84,22 +88,13 @@ namespace BucStop.Controllers
             return games;
         }
         
-        // We're still figuring it out...
-        public async Task<List<Game>> SetTetrisJS()
+        // Envokes the GetTetrisJS method, which returns the javascript file as a string.
+        // Sets the game object's content to include the JavaScript file.
+        public async void SetTetrisContent(Game game)
         {
-            List<Game> games = _gameService.GetGames();
-            String tetrisJS = await _httpClient.GetTetrisJS();
-
-            foreach(Game game in games)
-            {
-                // Tetris is GameID 2.
-                if (game.Id == 2)
-                {
-                    String javaScript = game.Content;
-                }
-            }
-
-            return games;
+            String tetrisJs = await _httpClient.GetTetrisJS();
+            
+            game.Content = tetrisJs;
         }
 
         //Processes the Fetch request from the Javascript game

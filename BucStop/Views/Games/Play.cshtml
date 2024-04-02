@@ -48,7 +48,14 @@
                         }
 
                         <!-- Embed the game's Javascript here -->
+                        @if (Model.Id == 2)
+                        {
+                            <script type="text/javascript">@Html.Raw(Model.Content)</script>
+                        }
+                        else
+                        {
                             <script src="@Url.Content(Model.Content)"></script>
+                        }
                     </div>
                 </div>
             </div>

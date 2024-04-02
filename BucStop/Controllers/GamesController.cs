@@ -83,6 +83,24 @@ namespace BucStop.Controllers
 
             return games;
         }
+        
+        // 
+        public async Task<List<Game>> SetTetrisJS()
+        {
+            List<Game> games = _gameService.GetGames();
+            String tetrisJS = await _httpClient.GetTetrisJS();
+
+            foreach(Game game in games)
+            {
+                // Tetris is GameID 2.
+                if (game.Id == 2)
+                {
+                    String javaScript = game.Content;
+                }
+            }
+
+            return games;
+        }
 
         //Processes the Fetch request from the Javascript game
         [HttpPost]

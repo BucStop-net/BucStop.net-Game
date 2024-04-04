@@ -42,13 +42,12 @@ namespace BucStop
 
         }
         
-        // This method returns a string containing the .js file to be embedded into the Tetris game.
-        // It pulls from the MicroService API for Tetris. GET Request for Tetris API.
+        // api gateway changes this to the methid that pulls the js string from the MS, passing a, id int
         public async Task<string> GetTetrisJS()
         {
             try
             {
-                var responseMessage = await this.client.GetAsync("/tetris");
+                var responseMessage = await this.client.GetAsync("/games");
 
                 if (responseMessage.IsSuccessStatusCode)
                 {

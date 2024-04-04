@@ -92,7 +92,7 @@ namespace BucStop.Controllers
         // Returns the game object back with the content variable populated with the javascript.
         public async void SetGameContent(Game game)
         {
-            String gameJs = await _httpClient.GetTetrisJS();
+            String gameJs = await _httpClient.GetGameJS(game.Id);
             
             game.Content = gameJs;
         }

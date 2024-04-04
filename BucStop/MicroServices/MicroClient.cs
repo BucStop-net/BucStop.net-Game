@@ -41,9 +41,9 @@ namespace BucStop
             return new GameInfo[] { };
 
         }
-        
+
         // api gateway changes this to the methid that pulls the js string from the MS, passing a, id int
-        public async Task<string> GetTetrisJS()
+        /*public async Task<string> GetGameJS()
         {
             try
             {
@@ -60,6 +60,26 @@ namespace BucStop
             }
             return string.Empty;
 
+        }*/
+
+        // the new api method, which intakes an ID to send to the MS for routing 
+        public async Task<string> GetGameJS(int gameId)
+        {
+            try
+            {
+                var responseMessage = await this.client.GetAsync($"/games/{gameId}");
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    return await responseMessage.Content.ReadAsStringAsync();
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+            return string.Empty;
         }
+
     }
 }

@@ -1,19 +1,4 @@
-﻿@model BucStop.Models.Game
-
-<!-- This is the page every game is embeded into with the js files(in wwwroot folder) -->
-<style>
-    canvas {
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        border-style: solid;
-    }
-</style>
-
-
-<!-- Content -->
+﻿<!-- Content -->
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -47,15 +32,8 @@
                             <canvas width="400" height="500" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
 
-                        <!-- Embed the game's Javascript here -->
-                        @if (Model.Id == 2)
-                        {
-                            <script type="text/javascript">@Html.Raw(Model.Content)</script>
-                        }
-                        else
-                        {
+                            <!-- Embed the game's Javascript here -->
                             <script src="@Url.Content(Model.Content)"></script>
-                        }
                     </div>
                 </div>
             </div>
@@ -77,13 +55,60 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="author" role="tabpanel" aria-labelledby="home-tab">
-                    <p>@Model.Author</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.Author</p>
+                    }
+                    else
+                    {
+                        <p>A Team Bobby Project</p>
+    
+                    }
+
                 </div>
                 <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="profile-tab">
-                    <p>@Model.Description</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.Description</p>
+                    }
+                    else if(Model.Title == "Snake")
+                    {
+                    <p>
+                        Dive into nostalgia with our online version of the iconic Snake game! Control your snake as it slithers around the screen, gobbling up food to grow longer. But beware, hitting the walls or yourself ends the game! Challenge yourself to beat your high score and become the ultimate Snake champion. Enjoy this classic game right in your browser, no downloads required!
+                        </p>
+                    }
+                    else if(Model.Title == "Pong")
+                    {
+                        <p>
+                            Get ready for some retro gaming fun with our online version of Pong! Control your paddle and bounce the ball past your opponent to score points. With simple controls and addictive gameplay, Pong is the perfect way to challenge your friends or test your skills solo. Can you outmaneuver your opponent and claim victory? Play now and find out!
+                        </p>
+                    }
                 </div>
                 <div class="tab-pane fade" id="howtoplay" role="tabpanel" aria-labelledby="contact-tab">
-                    <p>@Model.HowTo</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.HowTo</p>
+                    }
+                    else if(Model.Title == "Snake")
+                    {
+                        <p>
+                            The goal is to eat food while avoiding collisions with the snake's body and the boundaries. Use the arrow keys and steer the snake to consume food, making it longer. The game ends if the snake collides with itself or the borders.
+                        </p>
+                    }
+                    else if(Model.Title == "Pong")
+                    {
+                        <p>
+                            Control paddles with the arrow keys to hit a ball back and forth across a screen. The goal is to prevent the ball from passing your paddle while trying to score points by getting the ball past your opponent's paddle. The game continues until one player fails to return the ball, at which point the opposing player scores a point.
+                        </p>
+                    }
+                    @if (Model.Id == 2)
+                    {
+                        <script type="text/javascript">@Html.Raw(Model.Content)</script>
+                    }
+                    else
+                    {
+                        <script src="@Url.Content(Model.Content)"></script>
+                    }
                 </div>
                 <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">
                     <body>

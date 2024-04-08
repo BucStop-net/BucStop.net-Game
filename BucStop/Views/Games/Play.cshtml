@@ -1,18 +1,3 @@
-﻿@model BucStop.Models.Game
-
-<!-- This is the page every game is embeded into with the js files(in wwwroot folder) -->
-<style>
-    canvas {
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        border-style: solid;
-    }
-</style>
-
-
 <!-- Content -->
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -115,6 +100,14 @@
                         <p>
                             Control paddles with the arrow keys to hit a ball back and forth across a screen. The goal is to prevent the ball from passing your paddle while trying to score points by getting the ball past your opponent's paddle. The game continues until one player fails to return the ball, at which point the opposing player scores a point.
                         </p>
+                    }
+                    @if (Model.Id == 2)
+                    {
+                        <script type="text/javascript">@Html.Raw(Model.Content)</script>
+                    }
+                    else
+                    {
+                        <script src="@Url.Content(Model.Content)"></script>
                     }
                 </div>
                 <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">

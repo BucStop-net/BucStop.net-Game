@@ -53,4 +53,4 @@ send the JS as a string back to Bucstop, where it will run locally.
 ### Help
 For more documentation on how to run locally and how to set up deployments, see the google docs below:
 * [Running Locally](https://docs.google.com/document/d/1gfUpjZNfqWyv1ohUW1IaS8fOhXp0hOx6tFQVXBADa8Q/edit?usp=sharing)
-* [How to Deploy]([https://docs.google.com/document/d/1i0edcmvZm_j0zQLYiigNliW39FJuJbmhkxOCCb2NbVs/edit?usp=sharing](https://docs.google.com/document/d/1MbolrcHgcJCKjInjxEu2orgP7qfAPIBt_-CmevXkIew/edit))
+* [How to Deploy](https://docs.google.com/document/d/1MbolrcHgcJCKjInjxEu2orgP7qfAPIBt_-CmevXkIew/edit)

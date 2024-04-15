@@ -1,5 +1,5 @@
-## BucStop
-## East Tennessee State University
+# BucStop
+### East Tennessee State University
 #### CSCI 4350
 #### Built with Love: Fall 23, Spring 24
 #### By: Team Bobby, Comm-rads 

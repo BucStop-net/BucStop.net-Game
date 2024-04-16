@@ -52,6 +52,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rate" type="button" role="tab" aria-controls="rate" aria-selected="false">Rating</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#leaderboard" type="button" role="tab" aria-controls="leaderboard" aria-selected="false">Leaderboard</button>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="author" role="tabpanel" aria-labelledby="home-tab">
@@ -109,6 +112,68 @@
                     {
                         <script src="@Url.Content(Model.Content)"></script>
                     }
+                </div>
+                <div class="tab-pane fade" id="leaderboard" role="tabpanel" aria--labelledby="contact-tab">
+                    <body>
+                        <!-- Fake names and data just to make it pretty. Eventually set it up to get the data from the persistent storage in the game's micro-->
+                        <table>
+                            <tr style="color: black">
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                            <tr>
+                                <td>1</td> 
+                                <td>John Doe</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>950</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Michael Johnson</td>
+                                <td>900</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Sarah Brown</td>
+                                <td>850</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>David Lee</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Emily Wilson</td>
+                                <td>750</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Christopher Taylor</td>
+                                <td>700</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Amy Martinez</td>
+                                <td>650</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>William Garcia</td>
+                                <td>600</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Olivia Rodriguez</td>
+                                <td>550</td>
+                            </tr>
+                        </table>
+                    </body>
                 </div>
                 <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">
                     <body>

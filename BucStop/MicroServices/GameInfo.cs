@@ -7,6 +7,5 @@
         public string Description { get; set; }
         public string DateAdded { get; set; }
         public string HowTo { get; set; }
-        public string Content { get; set; }
     }
 }

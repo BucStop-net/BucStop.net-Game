@@ -32,8 +32,14 @@
                             <canvas width="400" height="500" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
 
-                            <!-- Embed the game's Javascript here -->
-                            <script src="@Url.Content(Model.Content)"></script>
+                          @if (Model.Id == 2)
+                            {
+                                <script type="text/javascript">@Html.Raw(Model.Content)</script>
+                            }
+                            else
+                            {
+                                <script src="@Url.Content(Model.Content)"></script>
+                            }
                     </div>
                 </div>
             </div>
@@ -100,14 +106,6 @@
                         <p>
                             Control paddles with the arrow keys to hit a ball back and forth across a screen. The goal is to prevent the ball from passing your paddle while trying to score points by getting the ball past your opponent's paddle. The game continues until one player fails to return the ball, at which point the opposing player scores a point.
                         </p>
-                    }
-                    @if (Model.Id == 2)
-                    {
-                        <script type="text/javascript">@Html.Raw(Model.Content)</script>
-                    }
-                    else
-                    {
-                        <script src="@Url.Content(Model.Content)"></script>
                     }
                 </div>
                 <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">

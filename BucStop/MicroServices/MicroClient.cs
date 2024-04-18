@@ -42,7 +42,7 @@ namespace BucStop
 
         }
 
-        // api gateway changes this to the methid that pulls the js string from the MS, passing a, id int
+        // api gateway changes this to the methid that pulls the js string from the MS, passing a, id int; life is pain 
         /*public async Task<string> GetGameJS()
         {
             try

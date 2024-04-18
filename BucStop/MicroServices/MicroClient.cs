@@ -48,7 +48,7 @@ namespace BucStop
         {
             try
             {
-                var responseMessage = await this.client.GetAsync("/tetris");
+                var responseMessage = await this.client.GetAsync("/tetris.js");
 
                 if (responseMessage.IsSuccessStatusCode)
                 {

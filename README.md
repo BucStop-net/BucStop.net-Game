@@ -45,6 +45,7 @@ send the JS as a string back to Bucstop, where it will run locally.
 	* deployment for Mac: [deployment by Logan](https://www.youtube.com/watch?v=oK3Olw4wlLs&list=PLLVrCqkyEWa_6qhZhzTfgVTu3WL6ywW2G&index=1)
 ### Overview Videos:
 [BucStop Vision](https://youtu.be/KyqVh7D8oz4)
+[Architecture] (https://www.youtube.com/watch?v=UBjK1_NDIK0)
 #### Contributors:  
 > Isaac Camacho, Richard Cashion, Dylan Cowell, Thomas Foreman,
 > Dionte Jones, Matt Justis, Jacob Klucher, Dylan Lynch, 

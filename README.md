@@ -8,7 +8,7 @@
 This project is a game website made by and for ETSU students. Bucstop acts as a front end for users to browse, play, and rate games. Bucstop calls a Microservice API to retrieve game code for players. The microservice is here: [Micro Service](https://github.com/BucStop-net/GameInfoMicroService_SP24).
 
 ### Known Bugs:
-[BugLog](https://docs.google.com/document/d/1qtNMQAEP9aWnK6pfo39iGT0Dhm9uwL6oDHdy6B-Vy-4/edit#heading=h.mgz5ua27kudv)
+[BugLog](https://docs.google.com/document/d/18zQnqhbHpZvoPzhQS3A24BacXtmFW6eH7-32d9fFwlc/edit?usp=sharing)
 
 ### Project Structure: 
 To understand the project structure, familiarize yourself with the

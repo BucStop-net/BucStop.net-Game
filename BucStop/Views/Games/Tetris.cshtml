@@ -62,6 +62,8 @@ function getNextTetromino() {
     matrix: matrix,  // the current rotation matrix
     row: row,        // current row (starts offscreen)
     col: col         // current col
+
+    //test comment
   };
 }
 
@@ -105,6 +107,7 @@ function placeTetromino() {
         // game over if piece has any part offscreen
         if (tetromino.row + row < 0) {
           return showGameOver();
+          <button id="play-again" class="btn btn-primary center-button" onclick = "location.reload()" > Play Again < /button>
         }
 
         playfield[tetromino.row + row][tetromino.col + col] = tetromino.name;
@@ -149,6 +152,9 @@ function placeTetromino() {
   tetromino = getNextTetromino();
 }
 
+ var playAgainButton = document.getElementById('play-again');
+
+
 // show the game over screen
 function showGameOver() {
   cancelAnimationFrame(rAF);
@@ -163,12 +169,18 @@ function showGameOver() {
   context.textAlign = 'center';
   context.textBaseline = 'middle';
   context.fillText('GAME OVER! Score: ' + score, canvas.width / 2, canvas.height / 2);
+
+  //Show Play Again button
+    playAgainButton.style.display = 'block';
+
 }
+
 
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
 const grid = 32;
 const tetrominoSequence = [];
+
 
 // keep track of what is in every cell of the game using a 2d array
 // tetris playfield is 10x20, with a few rows offscreen

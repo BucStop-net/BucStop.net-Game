@@ -1,35 +1,27 @@
-﻿@model BucStop.Models.Game
-
-<!-- This is the page every game is embeded into with the js files(in wwwroot folder) -->
-<style>
-    canvas {
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        border-style: solid;
-    }
-</style>
-
-
 <!-- Content -->
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@Model.Title</div>
+                <div class="card-header text-center">@Model.Title</div>
                 <div class="card-body">
-                    <div class="game">
+                    <div class="game text-center">
 
                         <!-- Embed the game canvas here -->
                         @if (Model.Title == "Snake")
                         {
-                            <canvas width="400" height="400" id="game"></canvas>
+                            <canvas width="400" height="400" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
                         else if (Model.Title == "Tetris")
                         {
+                // create a play again button
                             <canvas width="320" height="640" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
+                //Retart Game Button just in case
+                            <button id="restart-game" class="btn btn-primary center-button" onclick="location.reload()">Restart Game</button>
+
+                            //javascript button attempt
+                            //<button id="play-again" class="btn btn-primary center-button" onclick="location.reload()" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Play Again</button>
+
                         }
                         else if (Model.Title == "Pong")
                         {
@@ -40,14 +32,20 @@
                             <canvas width="400" height="500" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
 
-                            <!-- Embed the game's Javascript here -->
+                        @if (Model.Id == 2)
+                        {
+                            <script> type="text/javascript"@Html.Raw(Model.Content)</script>
+                        }
+                        else
+                        {
                             <script src="@Url.Content(Model.Content)"></script>
+                        }
                     </div>
                 </div>
             </div>
 
             <!-- Pills to view a games author, description, and how to play -->
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#author" type="button" role="tab" aria-controls="author" aria-selected="true">Author</button>
                 </li>
@@ -57,16 +55,153 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#howtoplay" type="button" role="tab" aria-controls="howtoplay" aria-selected="false">How to Play</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rate" type="button" role="tab" aria-controls="rate" aria-selected="false">Rating</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#leaderboard" type="button" role="tab" aria-controls="leaderboard" aria-selected="false">Leaderboard</button>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="author" role="tabpanel" aria-labelledby="home-tab">
-                    <p>@Model.Author</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.Author</p>
+                    }
+                    else
+                    {
+                        <p>A Team Bobby Project</p>
+    
+                    }
+
                 </div>
                 <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="profile-tab">
-                    <p>@Model.Description</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.Description</p>
+                    }
+                    else if(Model.Title == "Snake")
+                    {
+                    <p>
+                        Dive into nostalgia with our online version of the iconic Snake game! Control your snake as it slithers around the screen, gobbling up food to grow longer. But beware, hitting the walls or yourself ends the game! Challenge yourself to beat your high score and become the ultimate Snake champion. Enjoy this classic game right in your browser, no downloads required!
+                        </p>
+                    }
+                    else if(Model.Title == "Pong")
+                    {
+                        <p>
+                            Get ready for some retro gaming fun with our online version of Pong! Control your paddle and bounce the ball past your opponent to score points. With simple controls and addictive gameplay, Pong is the perfect way to challenge your friends or test your skills solo. Can you outmaneuver your opponent and claim victory? Play now and find out!
+                        </p>
+                    }
                 </div>
                 <div class="tab-pane fade" id="howtoplay" role="tabpanel" aria-labelledby="contact-tab">
-                    <p>@Model.HowTo</p>
+                    @if(Model.Title == "Tetris")
+                    {
+                        <p>@Model.HowTo</p>
+                    }
+                    else if(Model.Title == "Snake")
+                    {
+                        <p>
+                            The goal is to eat food while avoiding collisions with the snake's body and the boundaries. Use the arrow keys and steer the snake to consume food, making it longer. The game ends if the snake collides with itself or the borders.
+                        </p>
+                    }
+                    else if(Model.Title == "Pong")
+                    {
+                        <p>
+                            Control paddles with the arrow keys to hit a ball back and forth across a screen. The goal is to prevent the ball from passing your paddle while trying to score points by getting the ball past your opponent's paddle. The game continues until one player fails to return the ball, at which point the opposing player scores a point.
+                        </p>
+                    }
+                </div>
+                <div class="tab-pane fade" id="leaderboard" role="tabpanel" aria--labelledby="contact-tab">
+                    <body>
+                        <!-- Fake names and data just to make it pretty. Eventually set it up to get the data from the persistent storage in the game's micro-->
+                        <table>
+                            <tr style="color: black">
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                            <tr>
+                                <td>1</td> 
+                                <td>John Doe</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>950</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Michael Johnson</td>
+                                <td>900</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Sarah Brown</td>
+                                <td>850</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>David Lee</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Emily Wilson</td>
+                                <td>750</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Christopher Taylor</td>
+                                <td>700</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Amy Martinez</td>
+                                <td>650</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>William Garcia</td>
+                                <td>600</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Olivia Rodriguez</td>
+                                <td>550</td>
+                            </tr>
+                        </table>
+                    </body>
+                </div>
+                <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">
+                    <body>
+                        <div class="starcard">
+                            <span onclick="gfg(1)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(2)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(3)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(4)"
+                                  class="star">
+                                ★
+                            </span>
+                            <span onclick="gfg(5)"
+                                  class="star">
+                                ★
+                            </span>
+                            <h3 id="output">
+                                Rating is: 0/5
+                            </h3>
+                        </div>
+                        <script src="..\..\js\rating.js"></script>
+                    </body>
                 </div>
             </div>
 

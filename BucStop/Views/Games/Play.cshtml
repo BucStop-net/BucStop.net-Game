@@ -3,20 +3,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@Model.Title</div>
+                <div class="card-header text-center">@Model.Title</div>
                 <div class="card-body">
-                    <div class="game">
+                    <div class="game text-center">
 
                         <!-- Embed the game canvas here -->
                         @if (Model.Title == "Snake")
                         {
-                            <canvas width="400" height="400" id="game"></canvas>
+                            <canvas width="400" height="400" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
                         else if (Model.Title == "Tetris")
                         {
-                            // create a play again button
+                // create a play again button
                             <canvas width="320" height="640" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
-                            //Retart Game Button just in case
+                //Retart Game Button just in case
                             <button id="restart-game" class="btn btn-primary center-button" onclick="location.reload()">Restart Game</button>
 
                             //javascript button attempt
@@ -32,14 +32,14 @@
                             <canvas width="400" height="500" id="game" style="border: 1px solid #000000; background-color: gray"></canvas>
                         }
 
-                            <!-- Embed the game's Javascript here -->
-                            <script src="@Url.Content(Model.Content)"></script>
+                        <!-- Embed the game's Javascript here -->
+                        <script src="@Url.Content(Model.Content)"></script>
                     </div>
                 </div>
             </div>
 
             <!-- Pills to view a games author, description, and how to play -->
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#author" type="button" role="tab" aria-controls="author" aria-selected="true">Author</button>
                 </li>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="tab-pane fade" id="rate" role="tabpanel" aria-labelledby="contact-tab">
                     <body>
-                        <div class="card">
+                        <div class="starcard">
                             <span onclick="gfg(1)"
                                   class="star">
                                 ★

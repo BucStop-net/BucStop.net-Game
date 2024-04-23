@@ -11,6 +11,7 @@ This project is a game website made by and for ETSU students. Bucstop acts as a 
 [BugLog](https://docs.google.com/document/d/18zQnqhbHpZvoPzhQS3A24BacXtmFW6eH7-32d9fFwlc/edit?usp=sharing)
 
 ### Project Structure: 
+## [Architecture Vision](https://docs.google.com/document/d/1JRDEq0iDyEp96cbt_YUVYm2EnMUxjwyqOOTLxx7t7Fg/edit?usp=sharing) 
 To understand the project structure, familiarize yourself with the
 MVC (Model View Controller) structure. When clicking on a game, 
 an ID value will be passed to the controller, which will send that ID to the MS. The API will then 
